@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 15 41 38;
+  --foreground: 24 160 71;
+  --accent: 163 230 53;
+  --mute: 148 163 184;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 15 41 38;
+    --foreground: 16 118 52;
+    --accent: 163 230 53;
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+}
+
+.container {
+  max-width: 2100px;
+  margin: 0 auto;
+}
+
+.nav-text {
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 1.5rem);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.transform-img {
+  transition-property: all;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.transform-card {
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+}
+
+.header-background {
+  background-image: url('/img/header-bg-green_light.png');
+  background-repeat: repeat-x;
+  background-position: bottom left;
+}
+
+.footer-background {
+  background-image: url('/img/footer-bg-green_light.png');
+  background-repeat: repeat-x;
+  background-position: top left;
+}
+
+.characters-bg {
+  background: rgba(15, 41, 38, 0.95) url('/img/bg-rick.jpg');
+  background-blend-mode: darken;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.home-bg {
+  background: rgba(15, 41, 38, 0.95) url('/img/sky.jpg');
+  background-blend-mode: darken;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.home-button {
+  background: conic-gradient(
+    from 220deg,
+    rgb(var(--background)),
+    rgb(var(--foreground)),
+    rgb(var(--accent)),
+    rgb(var(--background))
+  );
+  clip-path: polygon(84% 0, 0 0, 0 100%, 84% 100%, 100% 50%);
+}
+
+.link::after {
+  content: url('/img/icon-link.svg');
+  width: 10px;
+  margin-left: 5px;
+}
+
+@keyframes rotateGradient {
+  0% {
+    background: 'conic-gradient(from 0deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
+  }
+
+  50% {
+    background: 'conic-gradient(from 180deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
+  }
+
+  100% {
+    background: 'conic-gradient(from 360deg, rgb(var(--background)), rgb(var(--foreground)), rgba(var(--accent)), rgb(var(--background)))';
+  }
+}
